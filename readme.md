@@ -46,7 +46,6 @@
 7. 第七个练习，要求wrapper居中且宽度自适应，margin-left及margin-right为200px。extra、navigation 宽度200px，分别位于content两侧。
    - 中间宽度自适应，两边宽度固定。
    - 统一设置三个元素为向左浮动。
-   - wrapper设置margin属性为：`margin 0 200px ;`，这样。
+   - wrapper设置margin属性为：`margin 0 200px ;`
    - wrapper的width属性不能设置为100%。因为这样会占据整个父元素的宽度。而左侧还留有200px的的外边距，整体效果就是wrapper偏右，而且extra和navigation无法移动过来（超出了浏览器的窗口范围）。
    - navigation和extra还是通过给margin-left设置负值，来向左移动到指定位置的。
-   
