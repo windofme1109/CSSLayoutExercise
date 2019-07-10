@@ -42,10 +42,10 @@
    - 第一种实现方式是设置float为left，并设置margin-left为负值，使navigation和extra移动到指定位置。
    - 第二种实现方式是设置float为right，此时需要设置margin-right，来移动navigation和extra。
    - 一个元素设置了float属性为right，那么设置margin-left为负值时，该元素不会向左移动。设置margin-right为负值，则该元素向右移动。设置float属性为left同理。
-   - 如果两个元素同时设置float属性为left。则第一个元素设置margin-right为负值比如为20px，第二个元素会把第一个元素看成宽度缩小20px（所以会覆盖一部分），第一个元素没有任何变化，而是依然保持原先的宽度。设置float属性为right时，margin-left为负值也是这样的效果。
+   - 如果两个元素同时设置float属性为left。则第一个元素设置margin-right为负值，比如为20px，第二个元素会把第一个元素看成宽度缩小20px（所以会覆盖一部分），但是第一个元素没有任何变化，而是依然保持原先的宽度。设置float属性为right时，margin-left为负值也是这样的类似的效果。
 7. 第七个练习，要求wrapper居中且宽度自适应，margin-left及margin-right为200px。extra、navigation 宽度200px，分别位于content两侧。
    - 中间宽度自适应，两边宽度固定。
    - 统一设置三个元素为向左浮动。
    - wrapper设置margin属性为：`margin 0 200px ;`
    - wrapper的width属性不能设置为100%。因为这样会占据整个父元素的宽度。而左侧还留有200px的的外边距，整体效果就是wrapper偏右，而且extra和navigation无法移动过来（超出了浏览器的窗口范围）。
-   - navigation和extra还是通过给margin-left设置负值，来向左移动到指定位置的。
+   - navigation和extra还是通过给margin-left设置负值（百分比和固定像素值），来向左移动到指定位置的。
