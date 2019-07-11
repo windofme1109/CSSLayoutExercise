@@ -1,0 +1,88 @@
+<!--
+圣杯布局
+是为了实现一个两侧宽度固定，中间宽度自适应的三栏布局
+要点：
+
+    1. 两侧宽度固定，中间宽度自适应
+    2. 中间部分在DOM结构上优先，以便先行渲染
+    3. 允许三列中的任意一列成为最高列
+    4. 只需要使用一个额外的<div>标签
+
+
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+
+        body {
+            min-width: 550px;
+        }
+        .container {
+
+            /*
+                给左右两个内边距设置宽度为200px、150px
+                这是给左右两列预留的空间
+            */
+            padding: 0 150px 0 200px;
+            /*清除子元素浮动带来的父元素高度塌陷的影响*/
+            overflow: hidden;
+            background: grey;
+        }
+        .main,.left,.right {
+            /*三列统一设置向左浮动*/
+            float: left ;
+        }
+        .main {
+            width: 100%;
+            background: #c9e2b3;
+        }
+        .left {
+            width: 200px ;
+            background: #c0a16b;
+
+            /*设置margin-left为负值，向左移动,此时会移动到main的最左边，但是不会占据父元素的padding-left的空白区*/
+            margin-left: -100%;
+            /*设置定位方式为relative，表示是相对于自身原本的位置进行定位*/
+            position: relative;
+            right: 200px;
+        }
+        .right {
+            width: 150px ;
+            background: green;
+
+            /*
+            为什么设置了margin-right为-150px后，right就会同main并列，并且占据了container右边内边距的150排序的留白区域呢
+            原因是：
+                   1. right向左浮动，margin-right设置为负值，对外表现的效果是right宽度缩小。而实际上，right的宽度没有变化
+                   如果负值同宽度一样大（-150px），那么right元素的宽度是0px
+                   2. 浮动元素脱离文档流，并且尽可能向左或右浮动。由于main的宽度设置为100%，占据了整个第一行，则right和left被
+                   挤到了第二行。而此时right的宽度为0px。根据浮动的原则（尽量靠近父元素的上边界），right会上浮，且仅仅挨着main右侧。
+                   因此，从视觉上看，right占据了父元素padding-right的区域。。
+            */
+
+            margin-right: -150px;
+
+            /*通过定位加margin-left来实现将right移动到右边栏*/
+            margin-left: -150px ;
+            position: relative ;
+            left: 150px ;
+
+        }
+        .footer {
+            background: yellow;
+        }
+
+    </style>
+    <title>圣杯布局(1)</title>
+</head>
+<body>
+<div class="container">
+    <div class="main">我是主要内容</div>
+    <div class="left">我是左边内容</div>
+    <div class="right">我是右边内容</div>
+</div>
+<div class="footer">footer</div>
+</body>
+</html>
