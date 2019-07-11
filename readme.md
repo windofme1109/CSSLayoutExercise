@@ -49,3 +49,10 @@
    - wrapper设置margin属性为：`margin 0 200px ;`
    - wrapper的width属性不能设置为100%。因为这样会占据整个父元素的宽度。而左侧还留有200px的的外边距，整体效果就是wrapper偏右，而且extra和navigation无法移动过来（超出了浏览器的窗口范围）。
    - navigation和extra还是通过给margin-left设置负值（百分比和固定像素值），来向左移动到指定位置的。
+8. 第八个练习，要求wrapper 左对齐且宽度自适应，margin-right为400px。navigation、extra 宽度200px，依次位于content右侧。
+   - 可以使用向左浮动实现这个布局。
+   - 自适应宽度的话，不需要指定width值。这样内容区宽度会根据内容以及页面的变化而自行调整。
+   - 也可以通过向右浮动实现布局。这里要注意的是：extra的移动距离不确定，因为main的宽度是不定的。所以要使用calc()函数动态计算距离。
+9. 第九个练习，要求是wrapper 右对齐(float:right)且宽度自适应，margin-left为400px。extra、navigation 宽度200px，依次位于content左侧。
+   - 这个布局比较简单。依旧是向右浮动结合margin-right设置负值向右移动元素。
+   - 设置margin-left用于给navigation和extra留下空间。
