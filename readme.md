@@ -56,3 +56,8 @@
 9. 第九个练习，要求是wrapper 右对齐(float:right)且宽度自适应，margin-left为400px。extra、navigation 宽度200px，依次位于content左侧。
    - 这个布局比较简单。依旧是向右浮动结合margin-right设置负值向右移动元素。
    - 设置margin-left用于给navigation和extra留下空间。
+10. 第十个练习，要求navigation 宽度200px，位于content左侧，而content位于中间，宽度自适应。extra 宽度33%，位于content右侧。
+    - 三个元素依旧设置向左浮动。
+    - content宽度自适应，通过设置wrapper的margin-left和margin-right实现。不能设置width为100%。
+    - navigation的宽度固定。通过设置margin-left为负值，向左移动到指定位置。
+    - extra的宽度为百分数，则实际宽度根据父元素的宽度而定。
