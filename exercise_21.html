@@ -6,9 +6,9 @@
 
 要求：
 
-navigation 宽度33%，位于content左侧
-content 位于中间
-extra 宽度200px，位于content右侧
+wrapper 左对齐
+navigation 位于 wrapper 右侧，宽度 200px
+extra 位于 navigation 右侧，宽度 25%
 
 -->
 
@@ -27,24 +27,80 @@ extra 宽度200px，位于content右侧
         }
 
         /*向左浮动实现布局效果*/
+        /*
         .wrapper {
             float: left;
-            margin-left: 33%;
-            margin-right: 200px;
+            margin-right: calc(25% + 200px);
             background: #ebccd1;
         }
+        */
+         /*
         .navigation {
-            width: 33%;
             float: left;
-            margin-left: -100%;
+            width: 200px;
+          */
+            /*
+                calc()函数用来计算动态的数值，可以百分比，px，em等单位混合使用
+                使用四则混合运算（+ - * /），注意，每个运算符前后要加空格，否则浏览器不识别
+                使用标准的数学运算优先级规则
+            */
+        /*
+            margin-left: calc(-200px - 25%);
             background: #c7254e;
         }
+        */
+        /*
         .extra {
-            width: 200px;
             float: left;
-            margin-left: -200px;
+            width: 25%;
+            margin-left: -25%;
             background: #c9e2b3 ;
         }
+
+         */
+
+        /*不使用calc()函数*/
+        /**/
+        .wrapper {
+            float: left;
+
+            /*宽度100%，wrapper可以平铺整个页面*/
+            width: 100%;
+
+            /*向左平移25%，因为宽度是100%，所以右侧会留出25%的空间，给extra*/
+            margin-left: -25%;
+            background: #843534;
+
+        }
+
+        .content {
+            /*
+                关键之处：
+                1. content没有设置宽度，所以默认是继承父元素的宽度，是100%
+                2. wrapper向左移动了25%，部分内容被遮挡，所以需要设content的margin-left为25%，这样把wrapper的平移抵消掉，
+                从而内容区可以正常显示。
+                3. 设置margin-right为200px，给navigation留出空间
+
+            */
+            margin: 0 200px 0 25%;
+            background: #ebccd1;
+        }
+
+
+       .navigation {
+           width: 200px;
+           float: left;
+           margin-left: -200px;
+           background: #c7254e;
+        }
+
+
+        .extra {
+            width: 25%;
+            float: left;
+            background: #c9e2b3;
+        }
+
         .footer {
             /*清除浮动*/
             clear: left;
@@ -53,7 +109,7 @@ extra 宽度200px，位于content右侧
 
 
     </style>
-    <title>CSS 布局——三列布局(20)</title>
+    <title>CSS 布局——三列布局(21)</title>
 </head>
 <body>
 <div class="container">
