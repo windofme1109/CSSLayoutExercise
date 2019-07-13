@@ -1,0 +1,70 @@
+<!--
+    双飞翼布局
+    实现的布局效果类似于圣杯布局，但是实现方式不一样：
+    1. 给中间块套了一个div容器
+    2. 设置中间块的margin属性保证中间块的内容不被遮挡
+    3. 不使用position属性
+
+    双飞翼布局实现的关键也是浮动、margin-left负值、以及中间块的margin设置
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            min-width: 500px;
+        }
+        .container {
+            overflow: hidden;
+            background: grey;
+
+        }
+
+        .middle-container {
+            width: 100%;
+        }
+
+        .middle-container,.left,.right {
+            float: left;
+        }
+
+        .main {
+            margin: 0 300px 0 200px;
+            background: #c7254e;
+        }
+
+        .left {
+            width: 200px;
+            margin-left: -100%;
+            background: #2b542c;
+        }
+
+        .right {
+            width: 300px;
+            margin-left: -300px;
+            background: #46b8da;
+        }
+
+        .footer {
+            clear: left;
+            background: yellow;
+        }
+    </style>
+    <title>双飞翼布局(1)</title>
+</head>
+<body>
+    <div class="header">Header</div>
+    <div class="container">
+        <div class="middle-container">
+            <div class="main">我是中间的内容我是中间的内容我是中间的内容我是中间的内容我是中间的内容我是中间的内容我是中间的内容我是中间的内容</div>
+        </div>
+        <div class="left">我是左边的内容我是左边的内容我是左边的内容我是左边的内容我是左边的内容</div>
+        <div class="right">我是右边的内容我是右边的内容我是右边的内容我是右边的内容我是右边的内容我是右边的内容我是右边的内容我是右边的内容我是右边的内容我是右边的内容</div>
+        <div class="footer">Footer</div>
+    </div>
+
+</body>
+</html>
