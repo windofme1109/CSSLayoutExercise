@@ -1,0 +1,59 @@
+<!--
+圣杯布局
+是为了实现一个两侧宽度固定，中间宽度自适应的三栏布局
+要点：
+
+    1. 两侧宽度固定，中间宽度自适应
+    2. 中间部分在DOM结构上优先，以便先行渲染
+    3. 允许三列中的任意一列成为最高列
+    4. 只需要使用一个额外的<div>标签
+
+
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        .container {
+            padding: 0 250px 0 300px;
+            overflow: hidden;
+            background: #761c19;
+        }
+        .left,.main,.right {
+            float: left;
+        }
+        .main {
+            width: 100%;
+            background: #c9e2b3;
+        }
+        .left {
+            width: 300px;
+            margin-left: -100%;
+            position: relative;
+            right: 300px;
+            background: #5e5e5e;
+        }
+        .right {
+            width: 250px;
+            margin-left: -250px;
+            position: relative;
+            left: 250px;
+            background: #c7254e;
+        }
+        .footer {
+            clear: left;
+            background: yellow;
+        }
+    </style>
+    <title>圣杯布局-练习 2</title>
+</head>
+<body>
+<div class="container">
+    <div class="main">我是主要内容我是主要内容我是主要内容我是主要内容我是主要内容我是主要内容我是主要内容我是主要内容我是主要内容</div>
+    <div class="left">我是左边内容我是左边内容我是左边内容我是左边内容我是左边内容我是左边内容</div>
+    <div class="right">我是右边内容我是右边内容我是右边内容我是右边内容我是右边内容我是右边内容</div>
+</div>
+<div class="footer">footer</div>
+</body>
+</html>
