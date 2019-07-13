@@ -61,3 +61,20 @@
     - content宽度自适应，通过设置wrapper的margin-left和margin-right实现。不能设置width为100%。
     - navigation的宽度固定。通过设置margin-left为负值，向左移动到指定位置。
     - extra的宽度为百分数，则实际宽度根据父元素的宽度而定。
+11. 第十一个练习，要求wrapper左对齐，宽度自适应，而navigation宽度为200px，位于wrapper的右侧。extra是25%，位于navigation的右侧。
+    - wrapper宽度自适应，extra的款式是25%，而navigation的宽度是200px，单位不统一。所以此时需要使用calc()函数进行计算。
+    - calc()函数的特点：
+       1. 用来计算动态的数值，可以百分比，px，em等单位混合使用。
+       2. 使用四则混合运算（+ - * /），注意，每个运算符前后要加空格，否则浏览器不识别。
+       3. 使用标准的数学运算优先级规则。
+    - wrapper、navigation、extra统一向左浮动，wrapper设置margin-right，给navigation和extra预留出空间。
+    - navigation和extra设置好宽度后，设置margin-left为负值，向左移动。
+    - 不确定数值的地方都使用calc()函数进行计算。
+    - 可以不使用calc()函数，完成这个布局：
+       1. wrapper的宽度100%，这样wrapper可以平铺整个页面。
+       2. wrapper的margin-left设置为-25%，向左平移25%，因为宽度是100%，所以右侧会留出25%的空间，给extra。
+       3. **content没有设置宽度，所以默认是继承父元素的宽度，是100%**
+       4. **wrapper向左移动了25%，部分内容被遮挡，所以需要设content的margin-left为25%，这样把wrapper的平移抵消掉，从而内容区可以正常显示。**
+       5. **设置margin-right为200px，给navigation留出空间。**
+       6. navigation和extra向左浮动。因为预留出了固定的空间，所以直接向左移动即可。
+    - 第二种不使用calc()的方法没有第一种简单，代码量也多一些。推荐使用第一种方法。
