@@ -78,3 +78,15 @@
        5. **设置margin-right为200px，给navigation留出空间。**
        6. navigation和extra向左浮动。因为预留出了固定的空间，所以直接向左移动即可。
     - 第二种不使用calc()的方法没有第一种简单，代码量也多一些。推荐使用第一种方法。
+12. 第十二个练习，要求wrapper左对齐，右侧保留200px空间，navigation、extra 位于 wrapper 右侧，自上而下排列。
+    - 方案一：
+      1. wrapper向左浮动，并设置margin-right为200px。
+      2. navigation向左浮动，设置margin-left为-200px，向左移动200px，因为宽度设置为200px，所以会占满整个留白区域。
+      3. extra向左浮动，设置margin-left为-200px，向左移动，然后设置margin-top，向下移动。移动的距离为navigation的高度。
+   - 这个方案存在一个问题，就是navigation的高度不确定，所以无法确定margin-top应该设置多少。因此被弃用。
+   - 方案二：
+      1. wrapper的宽度100%，这样wrapper可以平铺整个页面。
+      2. wrapper的margin-left设置为-200px，向左平移200px，因为宽度是100%，所以右侧会留出200px的空间，给extra和navigation。**注意：右侧留出的区域是父元素的区域，所以navigation和extra可以通过浮动移动到这个区域。**
+      4. **wrapper向左移动了200px，部分内容被遮挡，所以需要设content的margin-left为200px，这样把wrapper的平移抵消掉，从而内容区可以正常显示。**
+      5. navigation和extra向左浮动。因为预留出了固定的空间，同时根据浮动的规则，navigation和extra可以同时并排显示。
+   - 方案二的巧妙之处在于，wrapper向左移动，content向右移动，这样既在右侧留出了空间，同时内容区能够完整显示。结合浮动规则，就可以实现预定的布局。
