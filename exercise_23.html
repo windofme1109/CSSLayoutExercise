@@ -1,0 +1,104 @@
+<!--
+
+三栏布局
+
+三个部分，分别是wrapper、navigation、extra
+
+要求：
+
+wrapper 左对齐，右侧保留 200px 空间
+navigation、extra 位于 wrapper 右侧，自上而下排列
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="normalize.css">
+    <style>
+        h1 {
+            color: green;
+        }
+        .header {
+            background: #9d9d9d;
+        }
+
+        /*向左浮动实现布局效果*/
+
+        .wrapper {
+            /*宽度是100%，平铺整个父元素的页面*/
+            width: 100%;
+            float: left;
+            /*
+                设置向左浮动以后，再向左移动200px，给navigation和extra留出空间
+                因为wrapper的宽度是100%，所以向左移动以后，右侧留出的区域是父元素的区域
+                navigation和extra可以通过浮动移动到这个区域
+            */
+            margin-left: -200px;
+            background: #843534;
+        }
+        .content {
+            /*
+                关键之处：
+                1. content没有设置宽度，所以默认是继承父元素的宽度，是100%
+                2. wrapper向左移动了25%，部分内容被遮挡，所以需要设content的margin-left为200px，这样把wrapper的平移抵消掉，
+                从而内容区可以正常显示。
+
+            */
+            margin-left: 200px;
+            background: #ebccd1;
+        }
+
+        .navigation {
+            width: 200px;
+            float: left;
+            background: #c7254e;
+        }
+
+        .extra {
+            width: 200px;
+            float: left;
+            background: #c9e2b3 ;
+        }
+
+
+
+
+
+
+        .footer {
+            /*清除浮动*/
+            clear: left;
+            background: yellow;
+        }
+
+
+    </style>
+    <title>CSS 布局——三列布局(23)</title>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1>Header</h1>
+    </div>
+    <div class="wrapper">
+        <div class="content">
+            <p><strong>1) Content here. </strong>column long long column very long fill fill fill long text text column text silly very make long very fill silly make make long make text fill very long text column silly silly very column long very column filler fill long make filler long silly very long silly silly silly long filler make column filler make silly long long fill very.</p>
+            <p>very make make fill silly long long filler column long make silly silly column filler fill fill very filler text fill filler column make fill make text very make make very fill fill long make very filler column very long very filler silly very make filler silly make make column column</p>
+            <p>fill long make long text very make long fill column make text very silly column filler silly text fill text filler filler filler make make make make text filler fill column filler make silly make text text fill make very filler column very</p>
+            <p>column text long column make silly long text filler silly very very very long filler fill very fill silly very make make filler text filler text make silly text text long fill fill make text fill long text very silly long long filler filler fill silly long make column make silly long column long make very</p>
+        </div>
+    </div>
+    <div class="navigation">
+        <p><strong>2) Navigation here.</strong>long long fill filler very fill column column silly filler very filler fill fill filler text fill very silly fill text filler silly silly filler fill very make fill column text column very very column fill fill very silly column silly silly fill fill long filler</p>
+    </div>
+    <div class="extra">
+        <p><strong>3) More stuff here.</strong>very text make long silly make text very very text make long filler very make column make silly column fill silly column long make silly filler column filler silly long long column fill silly column very</p>
+    </div>
+    <div class="footer">
+        <p>Here it goes the footer</p>
+    </div>
+</div>
+</body>
+</html>
